@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LinkBootstrap from "./LinkBootstrap";
+import { Link } from "react-router-dom";
 
 const Nav = props => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand" href="#">Laravel React Passport</a>
+        <Link className="navbar-brand" to="/">Laravel React Passport</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>

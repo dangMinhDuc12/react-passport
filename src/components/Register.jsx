@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link} from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 const Register = props => {
+  const token = localStorage.getItem('token')
+
+  if(token) {
+    return <Redirect to="/profile" />
+  }
+
+
   return (
     <div>
       <br/>

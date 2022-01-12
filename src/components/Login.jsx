@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link, useHistory } from "react-router-dom";
+import {Link, Redirect, useHistory} from "react-router-dom";
 import api from '../utils/api'
+import {  useDispatch } from "react-redux";
+import { setLogin } from "../slice/loginSlice";
+
 
 
 const Login = props => {
   const history = useHistory()
+  const dispatch = useDispatch()
+  const token = localStorage.getItem('token')
+
 
   const [form, setForm] = useState({
     email: '',
@@ -26,6 +32,7 @@ const Login = props => {
     try {
       const res = await api.post('/login', form)
       localStorage.setItem('token', res.data.token)
+      dispatch(setLogin(true))
       history.push('/profile')
 
     } catch (e) {
@@ -33,6 +40,9 @@ const Login = props => {
     }
   }
 
+  if(token) {
+    return <Redirect to="/profile" />
+  }
 
 
 

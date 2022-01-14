@@ -11,6 +11,7 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Profile from "./components/Profile";
 import Forgot from "./components/Forgot"
+import Reset from "./components/Reset"
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/register" component={Register}/>
         <Route path="/profile" component={Profile}/>
         <Route path="/forgot" component={Forgot}/>
+        <Route exact path="/reset-password/:token" component={Reset}/>
       </Switch>
     </Router>
   );
